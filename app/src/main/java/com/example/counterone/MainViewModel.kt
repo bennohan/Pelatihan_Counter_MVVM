@@ -2,20 +2,28 @@ package com.example.counterone
 
 import androidx.databinding.ObservableField
 import androidx.lifecycle.ViewModel
+import androidx.lifecycle.ViewModelProvider
+import com.example.counterone.data.SaveCounter
+import dagger.hilt.android.lifecycle.HiltViewModel
+import javax.inject.Inject
 
-class MainViewModel : ViewModel() {
+@HiltViewModel
+class MainViewModel @Inject constructor(private val saveCounter: SaveCounter): ViewModel() {
 
     val counter = ObservableField(0)
 
     fun increaseCounter() {
-        val current = counter.get()?:0
-        counter.set(current+1)
+        saveCounter.counter = saveCounter.counter + 1
+        sendValue()
     }
 
     fun decreaseCounter() {
-        val current = counter.get()?:0
-        counter.set(current-1)
+        saveCounter.counter = saveCounter.counter - 1
+        sendValue()
     }
 
+    fun sendValue() {
+        counter.set(saveCounter.counter)
+    }
 
 }
