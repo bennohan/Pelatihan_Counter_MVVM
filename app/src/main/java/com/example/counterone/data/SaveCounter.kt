@@ -3,7 +3,7 @@ package com.example.counterone.data
 import android.content.Context
 
 class SaveCounter(context: Context) {
-    val pref = context.getSharedPreferences(PREF_NAME, Context.MODE_PRIVATE)
+    var pref = context.getSharedPreferences(PREF_NAME, Context.MODE_PRIVATE)
 
     var counter: Int
     set(value) {

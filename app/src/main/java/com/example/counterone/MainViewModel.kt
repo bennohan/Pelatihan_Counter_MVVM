@@ -2,7 +2,6 @@ package com.example.counterone
 
 import androidx.databinding.ObservableField
 import androidx.lifecycle.ViewModel
-import androidx.lifecycle.ViewModelProvider
 import com.example.counterone.data.SaveCounter
 import dagger.hilt.android.lifecycle.HiltViewModel
 import javax.inject.Inject
